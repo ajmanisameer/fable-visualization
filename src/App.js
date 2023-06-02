@@ -1,23 +1,32 @@
-import logo from './logo.svg';
+import React, { useState } from 'react'
 import './App.css';
+import BinaryTree from './BinaryTree';
 
 function App() {
+  const [inputArray, setInputArray] = useState('');
+  const [treeData, setTreeData] = useState([]);
+
+  const handleInputChange = (event) => {
+    setInputArray(event.target.value)
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const arr = inputArray.trim().split(',').map((item) => parseInt(item))
+    setTreeData(arr)
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <form onSubmit={handleSubmit}>
+        <label>
+          Input Array:  <input type="text" value={inputArray} onChange={handleInputChange} />
+        </label>
+        <button type="submit">Submit</button>
+      </form>
+      <BinaryTree
+        tree={treeData}
+      />
     </div>
   );
 }
