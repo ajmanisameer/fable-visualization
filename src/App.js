@@ -10,6 +10,7 @@ function App() {
     setInputArray(event.target.value)
   }
 
+  // cleans up the input; stores array on treeeData
   const handleSubmit = (event) => {
     event.preventDefault();
     const arr = inputArray.trim().split(',').map((item) => parseInt(item))

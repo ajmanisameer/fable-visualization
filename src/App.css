@@ -16,7 +16,6 @@ button {
 }
 
 
-
 .binary-tree {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
